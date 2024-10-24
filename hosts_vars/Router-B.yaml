@@ -1,0 +1,27 @@
+hostname: "Router-B"
+
+interfaces:
+  - interface: "loopback1"
+    int_description: "This is a test for interface L1"
+    ip_address: "3.3.3.3"
+    subnet_mask: "255.255.255.255"
+    int_type: "virtual"
+
+  - interface: "loopback2"
+    int_description: "This is a test for interface L2"
+    ip_address: "4.4.4.4"
+    subnet_mask: "255.255.255.255"
+    int_type: "virtual"
+
+  - interface: "GigabitEthernet0/0"
+    int_description: "This is connected to Router-A"
+    ip_address: "172.16.1.2"
+    subnet_mask: "255.255.255.255"
+    int_type: "physical"
+    status: "no shutdown"
+
+snmp:
+  - community: "Router-B_test_1"
+  - community: "Router-B_test_2"
+  - community: "Router-B_test_3"
+  - community: "Router-B_test_4"

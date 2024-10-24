@@ -1,0 +1,16 @@
+hostname {{ hostname }}
+!
+!
+{% for each_interface in interfaces %}
+interface {{ each_interface["interface"] }}
+ description {{ each_interface["int_description"] }}
+ ip address {{ each_interface["ip_address"] }} {{ each_interface["subnet_mask"] }}
+ {% if each_interface["int_type"] == "pysical" %}
+ snmp ifindex persist
+ {% endif %}
+{% endfor %}
+!
+{% for each_smnp_community in snmp %}
+snmp-server community {{ each_smnp_community["community"] }}
+!
+{% endfor %}
